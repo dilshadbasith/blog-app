@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MyContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 
 function AddBlog() {
   const { title, setTitle } = useContext(MyContext);
   const navigate = useNavigate();
-  const [blog, setBlog] = useState("");
+  // const [blog, setBlog] = useState("");
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -15,8 +15,8 @@ function AddBlog() {
     setTitle(
       (s) => (s = [...title, { id: Date.now(), title: title1, blog: blog1 }])
     );
-    console.log(title);
-    console.log(blog);
+    // console.log(title);
+    // console.log(blog);
     navigate("/");
   };
   return (

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { MyContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 
 function AddBlog() {
   const { title, setTitle } = useContext(MyContext);
   const navigate = useNavigate();
-  const [blog, setBlog] = useState("");
+  // const [blog, setBlog] = useState("");
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -15,19 +15,38 @@ function AddBlog() {
     setTitle(
       (s) => (s = [...title, { id: Date.now(), title: title1, blog: blog1 }])
     );
-    console.log(title);
-    console.log(blog);
+    // console.log(title);
+    // console.log(blog);
     navigate("/");
   };
-  return <div className="main">
-    <form onSubmit={handleInputChange}>
-        <input className="inp1" type="text" id="title" placeholder="Enter Title" /><br /><br />
+  return (
+    <div className="main">
+      <form onSubmit={handleInputChange}>
+        <input
+          className="inp1"
+          type="text"
+          id="title"
+          placeholder="Enter Title"
+        />
+        <br />
+        <br />
 
-        <textarea className="inp2"  id="blog" placeholder="Add your blog"></textarea><br /><br />
-        <button className="but1" type="submit">ADD</button>
-        <button className="but2" onClick={()=>navigate('/')} type="button">Cancel</button>
-    </form>
-  </div>;
+        <textarea
+          className="inp2"
+          id="blog"
+          placeholder="Add your blog"
+        ></textarea>
+        <br />
+        <br />
+        <button className="but1" type="submit">
+          ADD
+        </button>
+        <button className="but2" onClick={() => navigate("/")} type="button">
+          Cancel
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default AddBlog;

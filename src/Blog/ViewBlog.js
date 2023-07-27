@@ -8,7 +8,7 @@ function ViewBlog() {
     const {title}=useContext(MyContext);
     const navigate=useNavigate()
     const {id}=useParams()
-    const listitem=title.filter(h=>h.id==id)
+    const listitem=title.filter(h=>h.id===id)
   return (
     <div className='main'>
       <div>
